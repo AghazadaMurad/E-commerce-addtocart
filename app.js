@@ -78,5 +78,19 @@ cartBtn.addEventListener("click", () => {
 
 mainThumbnail.addEventListener("click", () => {
   lightbox.classList.remove("invisible");
-  // console.log("test");
+});
+closeLightboxBtn.addEventListener("click", () => {
+  lightbox.classList.add("invisible");
+});
+
+images.forEach((img) => {
+  img.addEventListener("click", () => {
+    let number = img.src.split("-")[2];
+    mainThumbnail.src = `./images/image-product-${number}.jpg`;
+    mainThumbnailLightBox.src = `./images/image-product-${number}.jpg`;
+    images.forEach((img) => {
+      img.classList.remove("selected");
+    });
+    img.classList.add("selected");
+  });
 });
